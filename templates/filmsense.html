@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% block content %}
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FilmSense</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/engine.css')}}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<section class="navigation">
+  <div class="nav-container">
+    <div class="brand">
+      <a href="#!"><span style="color: #eaeaea;">film</span><span style="color: #95b806;">sense</span></a>
+    </div>
+    <nav>
+      <div class="nav-mobile">
+        <a id="nav-toggle" href="#!"><span></span></a>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="{{ url_for('home_page') }}"><i class="fa-solid fa-house-chimney"></i> Home</a>
+        </li>
+        <li>
+          <a href="{{ url_for('logout_page') }}"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+        </li>
+        <li>
+          <a class="activeusr" href="#!"><i class="fa-regular fa-circle-user"></i> {{ name }}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<body style="height: 100%;">
+  <div class="bar"></div>
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+          {% if messages %}
+              {% for message in messages %}
+                  <p style="
+                  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;
+                  font-weight: 300;
+                  margin: 25px;
+                  margin: 10px 0;
+                  padding: 10px;
+                  border-radius: 3px 3px 3px 3px;
+                  color: #270;
+                  background-color: #DFF2BF;
+                  text-shadow: none !important;
+                  position: fixed;
+                  top: 15%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  animation: pops 5s forwards;
+                  opacity: 1;
+                  ">{{ message }} || Tervetuloa, {{ name }} 🥳</p>
+              {% endfor %}
+          {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="vid-main-wrapper clearfix">
+    <div class="vid-container">
+      <iframe id="vid_frame" title="Player" src="https://www.youtube.com/embed/m1FglxE0YU4" width="500" height="500"></iframe>
+    </div>
+    <div class="vid-list-container">
+      <ol id="vid-list">
+        <li class="selected">
+          <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/6djVujm3yk8?autoplay=1&rel=0&showinfo=0&autohide=1'">
+            <span class="vid-thumb">
+              <img width="72" alt="" src="https://img.youtube.com/vi/6djVujm3yk8/default.jpg"/>
+            </span>
+            <div class="desc">Rotating Loading Animation using CSS</div>
+          </a>
+        </li>
+        <li class="selected">
+          <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/D2IagKMWvtQ?autoplay=1&rel=0&showinfo=0&autohide=1'">
+            <span class="vid-thumb">
+              <img width="72" alt="" src="https://img.youtube.com/vi/D2IagKMWvtQ/default.jpg"/>
+            </span>
+            <div class="desc">Website Preloader Animation using CSS & JavaScript</div>
+          </a>
+        </li>
+        <li class="selected">
+          <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/CmzmZW21C9U?autoplay=1&rel=0&showinfo=0&autohide=1'">
+            <span class="vid-thumb">
+              <img width="72" alt="" src="https://img.youtube.com/vi/CmzmZW21C9U/default.jpg"/>
+            </span>
+            <div class="desc">Touch Swipe List Items using JavaScript</div>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </div>
+</body>
+
+<footer class="sticky-footer">
+  <hr style="
+      height: 2px;
+      border-width: 0;
+      color: azure;
+      background-color: #262626;
+    ">
+  <p class="copyright">
+    <span style="color: #eaeaea;">film</span><span style="color: #95b806;">sense</span> <i class="fa-regular fa-copyright"></i> 2023
+  </p>
+</footer>
+
+  <style>
+    .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+      color: rgba(11, 229, 98, 0.677);
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: rgb(249 249 249);
+    }
+
+    .bg-light {
+      background-color: #272726!important;
+    }
+
+    .navbar-light .navbar-brand {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .container {
+      margin-top: 10rem;
+      text-align: center;
+    }
+
+    .container h1 {
+      color: #fff; 
+      text-shadow: 0 0 10px rgba(0,0,0,0.3);
+      letter-spacing:1px; 
+      text-align:center; 
+    }
+
+    @keyframes pops {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%);
+      }
+    }
+  </style>
+
+{% endblock %}
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="https://kit.fontawesome.com/00bba88349.js" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% block content %}
+<html lang="en-US">
+    
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FilmSense</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/engine.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+{% if logged_in: %}
+<section class="navigation">
+    <div class="nav-container">
+        <div class="brand">
+            <a href="#!"><span style="color: #eaeaea;">film</span><span style="color: #95b806;">sense</span></a>
+        </div>
+        <nav>
+            <div class="nav-mobile">
+                <a id="nav-toggle" href="#!"><span></span></a>
+            </div>
+            <ul class="nav-list">
+                <li>
+                    <a href="{{ url_for('filmsense_page') }}"><i class="fa-solid fa-film"></i> Films</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('logout_page') }}"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+{% endif %}
+
+<body style="height: 100%;">
+    <div class="bar"></div>
+    <div id="container">
+        <h1 data-sr-id="0" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 1s cubic-bezier(0.5, 0, 0, 1) 0s, transform 1s cubic-bezier(0.5, 0, 0, 1) 0s;">
+            film<span style="color: rgb(108, 195, 18);">sense</span>
+        </h1>                    
+        <div class="box">
+            <!-- Conditional Statement-->
+            {% if not logged_in: %}
+            <a href="{{ url_for('login_page') }}" class="btn btn-primary btn-block btn-large" 
+            >Login</a>
+            <a href="{{ url_for('register_page') }}" class="btn btn-secondary btn-block btn-large">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+<style>
+    .btn-primary {
+        background-color: rgb(113, 189, 32);
+        border-color: rgb(113, 189, 32);
+    }
+
+    .btn-primary:hover {
+        color: #fff;
+        background-color: rgb(65, 88, 40);
+        border-color: rgb(65, 88, 40);
+    }
+</style>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://kit.fontawesome.com/00bba88349.js" crossorigin="anonymous"></script>
+{% endblock %}
+</html>

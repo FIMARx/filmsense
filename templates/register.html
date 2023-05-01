@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% block content %}
+<html itemtype="http://schema.org/WebPage" lang="en-US" class="sr ghjxcfc idc0_346">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FilmSense Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/engine.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body style="height: 100%;">
+    <div class="bar"></div>
+    <div id="container">
+        <div class="box">
+	        <h1 data-sr-id="0" style="visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transition: opacity 1s cubic-bezier(0.5, 0, 0, 1) 0s, transform 1s cubic-bezier(0.5, 0, 0, 1) 0s;">
+                Reg<span style="color: rgb(108, 195, 18);">ister</span>
+            </h1>
+            <br>
+
+            <!-- when user enters wrong data-->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="
+                        font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !important;
+                        font-weight: 300;
+                        margin: 25px;
+                        margin: 10px 0;
+                        padding: 10px;
+                        border-radius: 3px 3px 3px 3px;
+                        color: #D8000C;
+                        background-color: #FFBABA;
+                        text-shadow: none !important;
+                        ">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <!-- standard version of form-->
+            <form action="{{ url_for('register_page') }}" method="post">
+    	        <input type="text" name="name" placeholder="&#xf5b7; - Name" style="font-family: Arial, Fontawesome;" required="required" />
+		        <input type="email" name="email" placeholder="&#xf2b6; - Email" style="font-family: Arial, Fontawesome;" required="required" />
+                <input type="password" name="password" placeholder="&#xf084; - Password" style="font-family: Arial, Fontawesome;" required="required" />
+                <button type="submit" class="btn btn-primary btn-block btn-large" style="font-family: Arial, Fontawesome;">Sign Up &#xf2f6;</button>
+                <h2 style="padding: 10px; font-size: 10px; text-align: center; font-family: Arial, Fontawesome;">&#xf059; Oletko luonut jo tilin? <a href="{{ url_for('login_page') }}"><span style="color: rgb(108, 195, 18);">Kirjaudu täältä!</span></a></h2>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        input { 
+            width: 100%; 
+            margin-bottom: 10px; 
+            background: rgba(0,0,0,0.3);
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 13px;
+            color: #fff;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+            border: 1px solid rgb(108, 195, 18);;
+            border-radius: 4px;
+            box-shadow: inset 0 -5px 45px rgba(17, 211, 14, 0.2), 0 1px 1px rgba(63, 207, 23, 0.2);
+            -webkit-transition: box-shadow .5s ease;
+            -moz-transition: box-shadow .5s ease;
+            -o-transition: box-shadow .5s ease;
+            -ms-transition: box-shadow .5s ease;
+            transition: box-shadow .5s ease;
+        }
+
+        input:focus { 
+            box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+        }
+
+        .btn-primary {
+            background-color: rgb(113, 189, 32);
+            border-color: rgb(113, 189, 32);
+        }
+    
+        .btn-primary:hover {
+            color: #fff;
+            background-color: rgb(65, 88, 40);
+            border-color: rgb(65, 88, 40);
+        }
+    </style>
+
+</body>
+
+{% endblock %}
+    <script src="https://kit.fontawesome.com/00bba88349.js" crossorigin="anonymous"></script>
+</html>

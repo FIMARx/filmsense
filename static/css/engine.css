@@ -1,0 +1,410 @@
+/*  
+    ==========================
+    ========= ?ROOT? =========
+    ==========================
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700;900&display=swap"); body {
+    font-family: Raleway, "Helvetica Neue", Helvetica, sans-serif;
+    color: rgb(238, 238, 238);
+    background-image: url("data:image/jpeg;base64,/9j/4QK4RXhpZgAATU0AKgAAAAgACwEOAAIAAAA4AAAAkgEPAAIAAAAHAAAAygEQAAIAAAAOAAAA0gEoAAMAAAABAAIAAAExAAIAAAAOAAAA4AEyAAIAAAAUAAAA7gE7AAIAAAAHAAABAgITAAMAAAABAAEAAIKYAAIAAAA4AAABCodpAAQAAAABAAABQoglAAQAAAABAAACSgAAAABDb3B5cmlnaHQgKGMpIEdhbWVTZW5zZSAyMDE5LTIwMjIuIEFsbCByaWdodHMgcmVzZXJ2ZWQuAE1vdGlmeQAAZ2FtZXNlbnNlLnZpcABHYW1lU2Vuc2UvMi4wADIwMjI6MDM6MjMgMDQ6MjA6MDAATW90aWZ5AABDb3B5cmlnaHQgKGMpIEdhbWVTZW5zZSAyMDE5LTIwMjIuIEFsbCByaWdodHMgcmVzZXJ2ZWQuAAAKkAAABwAAAAQwMjMykAMAAgAAABQAAAHAkAQAAgAAABQAAAHUkQEABwAAAAQBAgMAkoYABwAAAB0AAAHooAAABwAAAAQwMTAwpDAAAgAAAAcAAAIGpDMAAgAAAAgAAAIOpDQAAgAAAA4AAAIWpDUAAgAAACUAAAIkAAAAADIwMjI6MDM6MjMgMDQ6MjA6MDAAMjAyMjowMzoyMyAwNDoyMDowMABBU0NJSQAAAGh0dHBzOi8vZ2FtZXNlbnNlLnZpcABNb3RpZnkAAGl0c251dWIAZ2FtZXNlbnNlLnZpcABjNjVkNGI4MS04YmY4LTRlODMtYmU4Yy0yMWUwYmU1ZDQ4MjkAAAAEAAEAAgAAAAJOAAAAAAIABQAAAAMAAAKAAAMAAgAAAAJXAAAAAAQABQAAAAMAAAKYAAAAAAAAACgAAAABAAAAKwAAAAEAAGNLAAAJxAAAAEkAAAABAAAAFQAAAAEAAJ9nAAAGjP/bAIQAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB/8IAEQgACAAEAwERAAIRAQMRAf/EACYAAQAAAAAAAAAAAAAAAAAAAAoBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAABKH/8QAHRAAAgEFAQEAAAAAAAAAAAAAAQISAwQREyIhQf/aAAgBAQABPwCxwKRUgiOkQPj08WltxVOpJ1B9bB5KrzGCf//EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQIBAT8Af//EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQMBAT8Af//Z");
+    background-repeat: repeat;
+    margin: 0px;
+    overflow-x: hidden !important;
+}
+
+/*  
+    ==========================
+    ===== NAVIGATION BAR =====
+    ==========================
+*/
+
+.navigation {
+    height: 70px;
+    background: #262626;
+}
+
+.brand {
+    position: absolute;
+    padding-left: 1px;
+    float: left;
+    line-height: 70px;
+    font-size: 2.0em;
+}
+
+.brand a, .brand a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+    position: relative;
+}
+
+nav ul li a, nav ul li a:visited {
+    display: block;
+    padding: 0 20px;
+    line-height: 70px;
+    background: #262626;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover, nav ul li a:visited:hover {
+    color: rgb(122 214 22);
+	text-decoration: none !important;
+}
+
+nav ul li a:not(:only-child):after, nav ul li a:visited:not(:only-child):after {
+    padding-left: 4px;
+    content: ' ▾';
+}
+
+nav ul li ul li {
+    min-width: 190px;
+}
+
+nav ul li ul li a {
+    padding: 15px;
+    line-height: 20px;
+}
+
+.nav-dropdown {
+    position: absolute;
+    display: none;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile navigation */
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #262626;
+    height: 70px;
+    width: 70px;
+}
+
+@media only screen and (max-width: 798px) {
+    .nav-mobile {
+        display: block;
+    }
+    nav {
+        width: 100%;
+        padding: 70px 0 0px;
+    }
+    nav ul {
+        display: none;
+    }
+    nav ul li {
+        float: none;
+    }
+    nav ul li a {
+        padding: 15px;
+        line-height: 20px;
+    }
+    nav ul li ul li a {
+        padding-left: 30px;
+    }
+    .nav-dropdown {
+        position: static;
+    }
+}
+
+@media screen and (min-width: 799px) {
+    .nav-list {
+        display: block !important;
+    }
+}
+
+#nav-toggle {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+}
+
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: #fff;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+}
+
+#nav-toggle span:before {
+    top: -10px;
+}
+
+#nav-toggle span:after {
+    bottom: -10px;
+}
+
+#nav-toggle.active span {
+    background-color: transparent;
+}
+
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+    top: 0;
+}
+
+#nav-toggle.active span:before {
+    transform: rotate(45deg);
+}
+
+#nav-toggle.active span:after {
+    transform: rotate(-45deg);
+}
+
+.activeusr {
+	color:white;
+	animation: mytext 5s linear 0s infinite alternate;
+}
+
+@keyframes mytext {
+    100%,
+    0% {
+        color: rgb(255, 0, 0);
+    }
+    8% {
+        color: rgb(255, 127, 0);
+    }
+    16% {
+        color: rgb(255, 255, 0);
+    }
+    25% {
+        color: rgb(127, 255, 0);
+    }
+    33% {
+        color: rgb(0, 255, 0);
+    }
+    41% {
+        color: rgb(0, 255, 127);
+    }
+    50% {
+        color: rgb(0, 255, 255);
+    }
+    58% {
+        color: rgb(0, 127, 255);
+    }
+    66% {
+        color: rgb(0, 0, 255);
+    }
+    75% {
+        color: rgb(127, 0, 255);
+    }
+    83% {
+        color: rgb(255, 0, 255);
+    }
+    91% {
+        color: rgb(255, 0, 127);
+    }
+}
+
+/*  
+    ==========================
+    ====== VIDEO PLAYER ======
+    ==========================
+*/
+.vid-container {
+	position: relative;
+	padding-bottom: 550px;
+	padding-top: 30px;
+	height: 0;
+	width: 70%;
+	float: left;
+}
+
+.vid-container iframe,
+.vid-container object,
+.vid-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 360px;
+}
+
+.vid-list-container {
+	width: 30%;
+	height: 500px;
+	overflow: hidden;
+	float: right;
+}
+
+.vid-list-container:hover,
+.vid-list-container:focus {
+	overflow-y: auto;
+}
+
+ol#vid-list {
+	margin: 0;
+	padding: 0;
+	background: rgb(104, 83, 83);
+}
+
+ol#vid-list li {
+	list-style: none;
+}
+
+ol#vid-list li a {
+	text-decoration: none;
+	background-color: rgb(104, 83, 83);
+	height: 166.6px;
+	display: block;
+	padding: 10px;
+}
+
+ol#vid-list li a:hover,
+ol#vid-list li.selected a {
+	background-color: rgb(104, 83, 83);
+}
+
+.vid-thumb {
+	float: left;
+	margin-right: 8px;
+}
+
+.active-vid {
+	background: rgb(104, 83, 83);
+}
+
+#vid-list .desc {
+	color: #CACACA;
+	font-size: 13px;
+	margin-top: 5px;
+}
+
+
+@media (max-width: 624px) {
+	body {
+		margin: 15px;
+	}
+
+	.caption {
+		margin-top: 40px;
+	}
+
+	.vid-list-container {
+		padding-bottom: 20px;
+	}
+
+}
+
+/*  
+    ==========================
+    ====== COLORFUL BAR ======
+    ==========================
+*/
+
+.bar {
+	padding: 0px;
+	margin: 0px;
+	height: 3px;
+	border-bottom: 1px solid rgb(0, 0, 0);
+	background: linear-gradient(to right, rgb(30, 87, 153) 0%, rgb(243, 0, 255) 50%, rgb(224, 255, 0) 100%);
+	background-size: 200% auto;
+	animation: moveColors 4s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+@keyframes moveColors {
+	0% {
+		background-position: 0% center;
+	}
+	100% {
+		background-position: 100% center;
+	}
+}
+
+/*  
+    ==========================
+    ===== CONTAINER IDKS =====
+    ==========================
+*/
+
+#container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#container h1 {
+    text-align: center;
+    margin: 0px auto;
+    padding: 0px;
+    font-size: 62pt;
+    font-weight: 400;
+    color: rgb(238, 238, 238);
+    height: auto;
+    max-height: 120px;
+}
+
+/*  
+    =============================
+    ===== CUSTOM SCROLL BAR =====
+    =============================
+*/
+
+body::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #272726;
+}
+
+/*  
+    ==================
+    ===== FOOTER =====
+    ==================
+*/
+
+body {
+    min-height: 100vh;
+}
+
+.sticky-footer {
+    position: sticky;
+    top: 100%;
+}
+
+footer{
+    display: grid;
+}
+
+.copyright {
+    top: 100%;
+    padding: 10px;
+    position: sticky;
+    background-color: #262626;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    font-size: medium;
+    color: rgb(255, 255, 255);
+    margin-bottom: 0;
+}
