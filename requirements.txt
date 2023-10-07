@@ -3,7 +3,7 @@
 
 # Flask Framework
 Flask==2.2.5
-# You can use 3.0.0 but in render.com 3.0.0 is not supported
+# You can use 3.0.0
 
 # Flask Packages
 Flask-Login==0.6.2
@@ -15,8 +15,6 @@ Flask-User==1.0.1.5
 Jinja2==3.1.2
 Werkzeug==2.2.3
 secret==0.8
-# Gunicorn is used to run the app
-gunicorn==21.2.0
 
 # Automated tests
 pytest==7.4.2
