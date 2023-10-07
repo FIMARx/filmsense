@@ -2,10 +2,12 @@ from flask import Flask, render_template, request, url_for, redirect, flash, sen
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
+from myapp import create_app
 import os
 import secrets
 
 app = Flask(__name__)
+app = create_app()
 
 # 24 byte
 secret_key = secrets.token_hex(24)
