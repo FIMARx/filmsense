@@ -2,7 +2,8 @@
 # Usage: pip install -r requirements.txt
 
 # Flask Framework
-Flask==3.0.0
+Flask==2.2.5
+#You can use 3.0.0 but in render.com 3.0.0 is not supported
 
 # Flask Packages
 Flask-Login==0.6.2
