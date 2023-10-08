@@ -27,6 +27,7 @@ To get a local copy up and running, follow these steps:
     2. Open the project in your preferred code editor.
     3. Explore the Python, HTML, CSS, and JavaScript files to understand the website's structure and functionality.
     4. Modify and experiment with the code to suit your needs.
+    
     - Feel free to contribute by suggesting improvements through pull requests.
 __________________________________
 # 🖼️ Showcase
